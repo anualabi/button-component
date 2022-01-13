@@ -1,11 +1,28 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import { StyledButton } from './styles';
 
-const Button = () => {
-  return (
-    <div>
-      <button>Button</button>
-    </div>
-  )
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  variant?: 'default' | 'outline' | 'text';
 }
 
-export default Button
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({children, variant, ...props}, ref) => {
+  return (
+    <StyledButton 
+      ref={ref} 
+      type='button' 
+      variant={variant} 
+      {...props}
+    >
+      {children}
+    </StyledButton>
+  )
+})
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(['default', 'outline', 'text'])
+}
+
+Button.defaultProps = {
+  variant: 'default'
+}

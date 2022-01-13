@@ -8,6 +8,7 @@ export const DANGER_COLOR = "#D32F2F";
 export const DANGER_DARK_COLOR = "#9A0007";
 export const DARK_TEXT = "#3F3F3F";
 export const PRIMARY_TEXT = "#3D5AFE";
-export const WHITE_COLOR = "#FFFFFF"
+export const WHITE_COLOR = "#FFFFFF";
+export const LIGHT_BLUE = "rgba(41, 98, 255, 0.1)"
 
 
