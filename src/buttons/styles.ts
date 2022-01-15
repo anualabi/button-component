@@ -41,4 +41,5 @@ export const StyledButton = styled.button<ButtonProps>`
   height: 36px;
 
   ${variantStyles}
+  box-shadow: ${(p) => p.disableShadow && "none"};
 `
