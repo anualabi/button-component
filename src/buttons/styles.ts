@@ -1,18 +1,19 @@
 import styled, { css } from "styled-components";
 import { ButtonProps } from './';
-import { DEFAULT_COLOR, DEFAULT_DARK_COLOR, DARK_TEXT, PRIMARY_TEXT, LIGHT_BLUE } from "../utils/styles"
+import { DEFAULT_COLOR, DEFAULT_DARK_COLOR, DARK_TEXT, PRIMARY_TEXT, LIGHT_BLUE, GRAY_TEXT } from "../utils/styles"
 
 const variantStyles = (p: ButtonProps) => {
   let color = PRIMARY_TEXT;
   let backgroundColor = "transparent";
   let bgHoverColor = LIGHT_BLUE;
   let border = `2px solid ${PRIMARY_TEXT}`;
-  let boxShadow = "0px 2px 3px rgba(51, 51, 51, 0.2)";
+  let boxShadow = "none";
 
   if (p.variant === 'default') {
     color = DARK_TEXT;
     backgroundColor = DEFAULT_COLOR;
     border = "none";
+    boxShadow = "0px 2px 3px rgba(51, 51, 51, 0.2)";
     bgHoverColor = DEFAULT_DARK_COLOR;
   } else if (p.variant === "text") {
     border = "none"
@@ -39,6 +40,18 @@ export const StyledButton = styled.button<ButtonProps>`
   text-align: center;
   width: 81px;
   height: 36px;
+
+  &:disabled {
+    background-color: ${p => p.variant !== "text" && DEFAULT_COLOR};
+    border: none;
+    box-shawodow: none;
+    color: ${GRAY_TEXT};
+    cursor: inherit;
+    
+    &:hover {
+      background-color: ${DEFAULT_COLOR};
+    }
+  }
 
   ${variantStyles}
   box-shadow: ${(p) => p.disableShadow && "none"};

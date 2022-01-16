@@ -10,3 +10,4 @@ export const DARK_TEXT = "#3F3F3F";
 export const PRIMARY_TEXT = "#3D5AFE";
 export const WHITE_COLOR = "#FFFFFF";
 export const LIGHT_BLUE = "rgba(41, 98, 255, 0.1)";
+export const GRAY_TEXT = "#9E9E9E";
