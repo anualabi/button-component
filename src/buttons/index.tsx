@@ -7,15 +7,17 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   disableShadow?: boolean;
   startIcon?: string;
   endIcon?: string;
+  size?: 'sm' | 'md' | 'lg'
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({children, variant, disableShadow, startIcon, endIcon, ...props}, ref) => {
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({children, variant, disableShadow, startIcon, endIcon, size, ...props}, ref) => {
   return (
     <StyledButton 
       ref={ref} 
       type='button' 
       variant={variant} 
       disableShadow={disableShadow}
+      size={size}
       {...props}
     >
       {startIcon && <span className='material-icons start-icon'>{startIcon}</span>}
@@ -29,8 +31,8 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['default', 'outline', 'text']),
   disableShadow: PropTypes.bool,
   startIcon: PropTypes.string,
-  endIcon: PropTypes.string
-
+  endIcon: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
 }
 
 Button.defaultProps = {
@@ -38,4 +40,5 @@ Button.defaultProps = {
   disableShadow: false,
   startIcon: '',
   endIcon: '',
+  size: 'md'
 }

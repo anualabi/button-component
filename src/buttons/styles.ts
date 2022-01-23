@@ -38,12 +38,25 @@ export const StyledButton = styled.button<ButtonProps>`
   box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
   cursor: pointer;
   text-align: center;
-  min-width: 81px;
-  height: 36px;
+  min-width: ${(p) => {
+    if(p.size === "lg") {
+      return "93px"
+    } else if (p.size === "sm") {
+      return "73px"
+    }
+    return "81px"
+  }};
+  min-height: ${(p) => {
+    if(p.size === "lg") {
+      return "42px"
+    } else if (p.size === "sm") {
+      return "32px"
+    }
+    return "36px"
+  }};
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
 
   .start-icon {
     margin-right: .3rem;
