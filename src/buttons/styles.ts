@@ -38,8 +38,20 @@ export const StyledButton = styled.button<ButtonProps>`
   box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
   cursor: pointer;
   text-align: center;
-  width: 81px;
+  min-width: 81px;
   height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  .start-icon {
+    margin-right: .3rem;
+  }
+
+  .end-icon {
+    margin-left: .3rem;
+  }
 
   &:disabled {
     background-color: ${p => p.variant !== "text" && DEFAULT_COLOR};
